@@ -1,0 +1,31 @@
+{ "name": "xmldecode",
+  "version": "0.1.0",
+  "description": "Decode the predefined XML entities (amp, lt, gt, apos, quot), CharRefs and CDATA sections.",
+  "keywords": [
+    "apos",
+    "CDATA", "cdata",
+    "decode",
+    "entity", "entities",
+    "HTML", "html",
+    "XML", "xml"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/xmldefuse-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/xmldefuse-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/xmldefuse-js/issues"
+  },
+
+  "private": false, "license": "ISC",
+
+  "main": "xmldecode.js",
+  "bin": {
+  },
+  "scripts": { "test": "nodejs test.js" },
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
