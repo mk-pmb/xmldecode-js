@@ -1,46 +1,63 @@
 ﻿
+<!--#echo json="package.json" key="name" underline="=" -->
 xmldecode
 =========
-Decode the [predefined XML entities][xml-predent] (amp, lt, gt, apos, quot),
-[CharRefs][xml-charref] and CDATA sections.
+<!--/#echo -->
+
+<!--#echo json="package.json" key="description" -->
+Decode the predefined XML entities (amp, lt, gt, apos, quot), CharRefs and
+CDATA sections.
+<!--/#echo -->
+
+Definitions:
+[Predefined XML entities](https://www.w3.org/TR/REC-xml/#NT-CharRef),
+[CharRefs](https://www.w3.org/TR/REC-xml/#sec-predefined-ent)
+
+
+API
+---
+
+This module exports one function:
+
+### xmldecode(orig)
+
+Returns a string with the text decoded from string `orig`.
+
+
 
 Usage
 -----
-From [test.js](test.js):
 
-```javascript
-var xmldecode = require('xmldecode'), eq = require("assert").strictEqual;
+see [test.js](test.js)
 
-eq(xmldecode("X &amp;amp &lt;lt &gt;gt &#39;#39; &quot;quot; Y"),
-  "X &amp <lt >gt '#39; \"quot; Y");
 
-eq(xmldecode("X &amp;amp &lt;lt &gt;gt &apos;apos; &quot;quot; Y"),
-  "X &amp <lt >gt 'apos; \"quot; Y");
-
-eq(xmldecode("<&amp;><![CDATA[<>&amp;<![CDATA[<&amp;&lt;]]>&apos;]]>&amp;"),
-  "<&><>&amp;<![CDATA[<&amp;&lt;']]>&");
-
-eq(xmldecode("]]&gt; in CDATA: <![CDATA[1]]2]]>&&;<![CDATA[>3]]>"),
-  "]]> in CDATA: 1]]2&&;>3");
-
-eq(xmldecode("untermin&#97;ted <![CDATA[ is b&#97;d for"),
-  "unterminated  is b&#97;d for");
-```
+<!--#toc stop="scan" -->
 
 
 Related
 -------
-  * [xmldefuse](https://www.npmjs.com/package/xmldefuse):
-    Encode the predefined XML entities and CharRefs.
-    Opt-out [CharRef][xml-charref] 39 for HTML. Bonus: Encode CDATA.
-  * [xmlunidefuse](https://www.npmjs.com/package/xmlunidefuse):
-    Convert some additional, easily overlooked Unicode characters to CharRefs.
+
+* [xmldefuse](https://npm.im/xmldefuse):
+  Encode the predefined XML entities and CharRefs.
+  Opt-out CharRef 39 for HTML. Bonus: Encode CDATA.
+* [xmlunidefuse](https://npm.im/xmlunidefuse):
+  Convert some additional, easily overlooked Unicode characters to CharRefs.
 
 
-  [xml-charref]: https://www.w3.org/TR/REC-xml/#NT-CharRef
-  [xml-predent]: https://www.w3.org/TR/REC-xml/#sec-predefined-ent
+
+Known issues
+------------
+
+* Needs more/better tests and docs.
+
+
+
+
+&nbsp;
 
 
 License
 -------
+<!--#echo json="package.json" key=".license" -->
 ISC
+<!--/#echo -->

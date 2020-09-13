@@ -1,5 +1,5 @@
 { "name": "xmldecode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Decode the predefined XML entities (amp, lt, gt, apos, quot), CharRefs and CDATA sections.",
   "keywords": [
     "apos",
